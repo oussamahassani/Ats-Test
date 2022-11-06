@@ -1,5 +1,4 @@
-console.log(process.env.REACT_APP_DEV_URL)
-console.log(process.env.REACT_APP_PROD_URL)
+
 console.log(process.env.NODE_ENV === "development")
 export const baseUrl =
   process.env.NODE_ENV === "development"

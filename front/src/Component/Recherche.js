@@ -9,10 +9,11 @@ function Recherche({
   formvValue,
 }) {
   let [inputRecherche , setinputRecherche] = useState({
-    productName:"",
-    category:"",
-    price:""
+    productName: formvValue && formvValue.productName ? formvValue.productName : "",
+    category:formvValue && formvValue.category ? formvValue.category : "",
+    price:formvValue && formvValue.price ? formvValue.price : ""
   });
+
   const handelchangevalue = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -45,7 +46,7 @@ function Recherche({
                         id="productName"
                         name="productName"
                         type="text"
-                        defaultValue={inputRecherche.productName}
+                        value={inputRecherche.productName}
                         placeholder="Nom"
                       />
                     </div>
@@ -58,7 +59,7 @@ function Recherche({
                         className="form-control"
                         id="category"
                         name="category"
-                        defaultValue={inputRecherche.category}
+                        value={inputRecherche.category}
                       >
                         <option value="">selectioner votre category</option>
                         {category.map((el, index) => {
@@ -81,7 +82,7 @@ function Recherche({
                         id="price"
                         name="price"
                         type="number"
-                        defaultValue={inputRecherche.price}
+                        value={inputRecherche.price}
                         placeholder="00"
                       />
                     </div>

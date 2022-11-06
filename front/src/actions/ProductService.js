@@ -12,7 +12,6 @@ import { baseUrl } from "./baseUrl";
 export const getProducts =
   (formData, recherche = null) =>
   async (dispatch) => {
-    console.log(formData, recherche, queryString.stringify(recherche));
     try {
       dispatch({
         type: LOADING_REQUEST,
@@ -40,8 +39,7 @@ export const getProductbyID = (prodId) => async (dispatch) => {
     dispatch({
       type: LOADING_REQUEST,
     });
-    console.log(prodId);
-    const res = await axios.get(baseUrl + `/oneproduct/${prodId}`);
+      const res = await axios.get(baseUrl + `/oneproduct/${prodId}`);
     dispatch({
       type: GET_PRODUCT,
       payload: res.data,
@@ -88,7 +86,6 @@ export const getRechercheReview =
     });
   }
     } catch (error) {
-      console.log(error)
       dispatch({
         type: PRODUCT_ERROR,
       });

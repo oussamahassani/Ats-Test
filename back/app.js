@@ -12,19 +12,17 @@ app.use(
     credentials: true,
   })
 );
-
+app.use("/", productrouter);
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("/public"));
+  const root = path.join(__dirname, 'public')
+app.use(express.static(root));
+app.get("*", (req, res) => {
+    res.sendFile('index.html', { root });
+})
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "public", "index.html"));
-  });
 }
 
-app.use("/", productrouter);
+
 
 module.exports = app;
-//const PORT = settings.PORT || 5000;
-//app.listen(PORT, () => {
-//console.log(`Server is running at port : ${PORT} `);
-//});
+

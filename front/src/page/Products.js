@@ -33,15 +33,16 @@ const Products = ({
 
   let { step } = formdata;
   const handleChange = (event, value) => {
-    console.log(value);
     setFormData(value);
     step = (value - 1) * 20;
-    console.log(step);
     formdata = step;
+    //find rating by page
     if(inputReview){
       getRechercheReview(formdata,{...formvValue,rating: inputReview })
 
-    } else {
+    }
+    //find prod by page 
+    else {
     getProducts(formdata, formvValue);
     }
   };
@@ -59,14 +60,18 @@ const Products = ({
   const findByRating = (event) => {
   
     const value = event.target.value;
+    //find rating
     if (value !== "") {
+      console.log('')
       setInputReviw(value)
       let ratingobject = {...formvValue,rating: value };
       getRechercheReview(0,ratingobject)
-    } else {
+    } //remove rating
+     else {
       setInputReviw(null)
       setformvValue(null)
       getProducts(0);
+      setFormData(1);
     }
   };
 
@@ -81,7 +86,7 @@ const Products = ({
           <input
              className="col-md-3"
             type="number"
-            placeholder="rating recherche"
+            placeholder="Rating recherche"
             min="0"
             max="5"
             onChange={findByRating}
