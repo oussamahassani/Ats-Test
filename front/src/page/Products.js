@@ -62,7 +62,6 @@ const Products = ({
     const value = event.target.value;
     //find rating
     if (value !== "") {
-      console.log('')
       setInputReviw(value)
       let ratingobject = {...formvValue,rating: value };
       getRechercheReview(0,ratingobject)
@@ -81,10 +80,10 @@ const Products = ({
         <Spinner />
       ) : (
         <div className="container-fluid">
-          <div className="row">
+          <div className="row mb-2">
           <label className="col-md-3">Rating Recherche</label>
           <input
-             className="col-md-3"
+             className="col-md-3 form-control"
             type="number"
             placeholder="Rating recherche"
             min="0"
@@ -96,8 +95,9 @@ const Products = ({
             handelRecherche={handelRecherche}
             setformvValue={setformvValue}
             formvValue={formvValue}
+            setFormData={setFormData}
           />
-          <div className="row">
+          <div className="row justify-content-center">
             {products.length > 0 ? (
               products &&
               products.map((products) => (

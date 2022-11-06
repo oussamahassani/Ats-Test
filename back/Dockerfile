@@ -12,4 +12,4 @@ COPY . ./
 
 
 # Main command
-CMD [ "npm","run","start-prod"]
+CMD [ "npm","run","start-docker"]

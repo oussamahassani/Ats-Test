@@ -25,10 +25,10 @@ const SingleProd = ({
           <div className="col-md-6">
             <h4>Details</h4>
             <h6 className="card-title">Product Name :{product.productName}</h6>
-            <p className="mb-1">Category: {product.category}</p>
-            <p className=" mb-1">Price: {product.price}</p>
-            <p className=" mb-1">Average Score: {product.averageScore}</p>
-            <p className=" mb-1">Description: {product.description}</p>
+            <p className="mb-1"><span className="font-weight-bolder">Category:</span> {product.category}</p>
+            <p className=" mb-1"><span className="font-weight-bolder">Price: </span>{product.price}</p>
+            <p className=" mb-1"><span className="font-weight-bolder">Average Score:</span> {product.averageScore}</p>
+            <p className=" mb-1"><span className="font-weight-bolder">Description:</span> {product.description}</p>
           </div>
 
           <div>

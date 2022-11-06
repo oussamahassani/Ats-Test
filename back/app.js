@@ -6,6 +6,7 @@ const mongoose = require("./lib/mongo");
 const productrouter = require("./routes/products");
 const settings = require("./lib/server");
 app.use(express.json({ extended: false }));
+
 app.use(
   cors({
     origin: settings.FRONT_URI,

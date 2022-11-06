@@ -39,7 +39,7 @@ ProductSchema.virtual("averageScore").get(function () {
     let totalvalue = valuetab.reduce((a, b) => a + b);
     rate = totalvalue / this.reviews.length;
   }
-  return rate;
+  return rate.toFixed(2);
 });
 
 const Products = mongoose.model("product", ProductSchema);

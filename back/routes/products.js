@@ -92,18 +92,24 @@ app.route("/oneproduct/:id").get(async (req, res) => {
 app.route("/findbyReview/:step").get(async (req, res) => {
   try {
     let step = Number(req.params.step);
-    if(req.query.length > 0){
-    console.log("test",...req.query)
-    }
+  
     let rating = Number(req.query.rating);
          delete req.query.rating
-console.log(req.query)
-if(req.query.length > 0){
-  console.log(req.query)
+
+         let object = {averageScore: { $gt: rating }}
+
+         //check if other query existe
+if(Object.keys(req.query).length > 0){
+  // transform price to number if exist
+  if(req.query.price){
+let price = Number(req.query.price);
+delete req.query.price
+object = Object.assign(object, {price : price})
+  }
+  // check if other query existe
+  if(Object.keys(req.query).length > 0)
+  object = Object.assign(object, req.query)
 }
-
-console.log(req.query)
-
     const prod = await Products.aggregate([
       { $unwind: "$reviews" },
 
@@ -117,7 +123,7 @@ console.log(req.query)
           imageUrl:{$first :"$imageUrl"}
         },
       },
-      { $match: { averageScore: { $gt: rating } } },
+      { $match: {...object} },
 
      // { "$project": { "_id": 1, "price": 1, "category": 1 } },
       {

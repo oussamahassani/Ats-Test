@@ -1,12 +1,15 @@
 import React,{useState} from "react";
 
 import { connect } from "react-redux";
+import { getProducts } from "../actions/ProductService";
 
 function Recherche({
   products: { category },
   handelRecherche,
   setformvValue,
   formvValue,
+  getProducts,
+  setFormData
 }) {
   let [inputRecherche , setinputRecherche] = useState({
     productName: formvValue && formvValue.productName ? formvValue.productName : "",
@@ -14,7 +17,7 @@ function Recherche({
     price:formvValue && formvValue.price ? formvValue.price : ""
   });
 
-  const handelchangevalue = (event) => {
+  const handelChangeValue = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setinputRecherche({ ...inputRecherche, [name]: value })
@@ -26,6 +29,11 @@ function Recherche({
     }
   };
 
+  const resetRecherche = () => {
+    getProducts(0, null);
+    setformvValue({})
+    setFormData(1)
+  }
   return (
     <div>
       <div className="card mb-3">
@@ -41,7 +49,7 @@ function Recherche({
                     <div className="form-group">
                       <label htmlFor="productName">Nom</label>
                       <input
-                        onChange={handelchangevalue}
+                        onChange={handelChangeValue}
                         className="form-control"
                         id="productName"
                         name="productName"
@@ -55,7 +63,7 @@ function Recherche({
                     <div className="form-group">
                       <label htmlFor="category">Catégorie</label>
                       <select
-                        onChange={handelchangevalue}
+                        onChange={handelChangeValue}
                         className="form-control"
                         id="category"
                         name="category"
@@ -77,7 +85,7 @@ function Recherche({
                     <div className="form-group">
                       <label htmlFor="price">Prix</label>
                       <input
-                        onChange={handelchangevalue}
+                        onChange={handelChangeValue}
                         className="form-control"
                         id="price"
                         name="price"
@@ -89,7 +97,7 @@ function Recherche({
                   </div>
                 </div>
                 <button
-                  className="btn btn-warning mb-3 float-right"
+                  className="btn btn-warning mb-3 float-right ml-1"
                   type="submit"
                 >
                   Rechercher
@@ -98,7 +106,7 @@ function Recherche({
                 <button
                   className="btn btn-danger mb-3 float-right"
                   type="reset"
-                  onClick={() => setformvValue({})}
+                  onClick={() =>resetRecherche() }
                 >
                   Réinitialiser
                 </button>
@@ -112,6 +120,5 @@ function Recherche({
 }
 const mapStatToProps = (state) => ({
   products: state.products,
-  product: state.product,
 });
-export default connect(mapStatToProps, null)(Recherche);
+export default connect(mapStatToProps, {getProducts})(Recherche);

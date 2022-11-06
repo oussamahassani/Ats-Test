@@ -23,7 +23,7 @@ const ProductItem = ({ products: { _id, category, productName, imageUrl,price, c
 
    return    <Rating
    name="simple-controlled"
-   value={averageScore}
+   value={Number(averageScore)}
   
  />
   }
@@ -54,11 +54,11 @@ const ProductItem = ({ products: { _id, category, productName, imageUrl,price, c
           <Typography gutterBottom variant="h5" component="h2">
           Category : {category}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body2" component="p">
           Product Name : {productName}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-          Price : {price}
+          Price : <span className='text-success'>{price}</span>
           </Typography>
           
           
