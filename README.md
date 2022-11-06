@@ -1,6 +1,18 @@
 # Ats-Test
 Ats-Test Technique MERN
 
+Home page
+![alt text](https://i.ibb.co/qxy3D3x/home-page.png)
+
+Detail page
+![alt text](https://i.ibb.co/v17TyYn/detail-page.png)
+
+Recherche Function 
+![alt text](https://i.ibb.co/mXQ8mn8/recherche-by-category-and-price.png)
+
+Rating  function ( can find rating with filter recherche if exist)
+![alt text](https://i.ibb.co/nR7vSfL/recherche-by-rating-and-category.png)
+
 
 ## Available Scripts
 ### `development mode`
@@ -28,6 +40,17 @@ cd /back
 create docker image with commande :  docker build . -t nameimage<br />
 run docker image at port 5000 : docker run --publish 5000:5000 nameimage<br />
 Or
-pull image from  docker hub  :  docker push oussamahassani20/atstest <br />
-and run image<br />
+pull image from  docker hub  :  docker pull oussamahassani20/atstest:latest <br />
+and run image at port 5000<br />
 
+##Available API
+### `/products`
+save product to data base and delete old product if existe
+### `/product/:step`
+get product with max 20 element 
+### `/oneproduct/:id`
+get one product
+### `/findbyReview/:step`
+get product with filter review
+### `/productCat`
+get all category 
