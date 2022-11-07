@@ -39,7 +39,7 @@ const ProductItem = ({ products: { _id, category, productName, imageUrl,price, c
 
 
 
-<LazyLoad height={150}>
+<LazyLoad height={150} placeholder={<img src="/imageload.gif" alt="lazy loader" />} debounce={500}>
         <CardMedia
           component="img"
           alt="Contemplative Reptile"

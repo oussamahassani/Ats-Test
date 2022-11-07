@@ -1,16 +1,16 @@
 # Ats-Test
 Ats-Test Technique MERN
 
-Home page
+Home page <br />
 ![alt text](https://i.ibb.co/qxy3D3x/home-page.png)
 
-Detail page
+Detail page <br />
 ![alt text](https://i.ibb.co/v17TyYn/detail-page.png)
 
-Recherche Function 
+Recherche Function  <br />
 ![alt text](https://i.ibb.co/mXQ8mn8/recherche-by-category-and-price.png)
 
-Rating  function ( can find rating with filter recherche if exist)
+Rating  function ( can find rating with filter recherche if exist) <br />
 ![alt text](https://i.ibb.co/nR7vSfL/recherche-by-rating-and-category.png)
 
 
@@ -18,12 +18,13 @@ Rating  function ( can find rating with filter recherche if exist)
 ### `development mode`
 
 in the front floder:.<br />
-add # inside NODE_ENV in .env file.<br />
+verifay  #NODE_ENV = prod in .env file.<br />
 install node monduls with commande ligne : npm i.<br />
 Runs  npm run start.<br />
 Open [http://localhost:3000](http://localhost:3000) .<br />
 in the back floder:.<br />
 Install node monduls with commande ligne : npm i.<br />
+verifay #NODE_ENV = production 
 Runs  npm run start.<br />
 
 ### `prod mode`
